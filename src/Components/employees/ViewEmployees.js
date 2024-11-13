@@ -11,13 +11,21 @@ export default function ViewEmployees() {
     const result = await axios.get(
       `http://localhost:8080/employees/${store_id}`
     );
-    //console.log(result.data);
+    console.log(result.data);
     setEmployees(result.data);
   };
 
   useEffect(() => {
     loadEmployees();
   }, []);
+
+  const deleteEmployee = async (id) => {
+    await axios.delete(
+      `http://localhost:8080/employees/delete/${store_id}/${id}`
+    );
+
+    loadEmployees();
+  };
 
   return (
     <div className="container">
@@ -41,8 +49,17 @@ export default function ViewEmployees() {
               <td>{employee.address}</td>
               <td>{employee.salary}</td>
               <td>
-                <button className="btn btn-outline-primary mx-2">
-                  View Products
+                <Link
+                  className="btn btn-outline-primary mx-2"
+                  to={`/editemployee/${store_id}/${employee.employeeId}`}
+                >
+                  Edit Employee
+                </Link>
+                <button
+                  className="btn btn-danger mx-2"
+                  onClick={() => deleteEmployee(employee.employeeId)}
+                >
+                  Delete Employee
                 </button>
               </td>
             </tr>

@@ -5,8 +5,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Components/pages/Home";
 import AddStore from "./Components/store/AddStore";
 import UpdateStore from "./Components/store/UpdateStore";
-import ViewEmployees from "./Components/employee/ViewEmployees";
-import AddEmployee from "./Components/employee/AddEmployee";
+import ViewEmployees from "./Components/employees/ViewEmployees";
+import AddEmployee from "./Components/employees/AddEmployee";
+import EditEmployee from "./Components/employees/EditEmployee";
+import ViewProducts from "./Components/products/ViewProducts";
+import AddProduct from "./Components/products/AddProduct";
+import EditProduct from "./Components/products/EditProduct";
 
 function App() {
   return (
@@ -26,6 +30,18 @@ function App() {
             exact
             path="/addemployee/:store_id"
             element={<AddEmployee />}
+          />
+          <Route
+            exact
+            path="/editemployee/:store_id/:employee_id"
+            element={<EditEmployee />}
+          />
+          <Route exact path="/products/:store_id" element={<ViewProducts />} />
+          <Route exact path="/addproduct/:store_id" element={<AddProduct />} />
+          <Route
+            exact
+            path="/editproduct/:store_id/:product_id"
+            element={<EditProduct />}
           />
         </Routes>
       </Router>

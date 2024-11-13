@@ -13,7 +13,7 @@ export default function Home() {
 
   const loadStores = async () => {
     const result = await axios.get("http://localhost:8080/stores");
-    console.log(result.data);
+    //console.log(result.data);
     setStores(result.data);
   };
 
@@ -57,9 +57,12 @@ export default function Home() {
                 >
                   View Employees
                 </Link>
-                <button className="btn btn-outline-primary mx-2">
+                <Link
+                  className="btn btn-outline-primary mx-2"
+                  to={`/products/${store.storeId}`}
+                >
                   View Products
-                </button>
+                </Link>
                 <button
                   className="btn btn-danger mx-2"
                   onClick={() => deleteStore(store.storeId)}
