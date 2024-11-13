@@ -6,6 +6,7 @@ import Home from "./Components/pages/Home";
 import AddStore from "./Components/store/AddStore";
 import UpdateStore from "./Components/store/UpdateStore";
 import ViewEmployees from "./Components/employee/ViewEmployees";
+import AddEmployee from "./Components/employee/AddEmployee";
 
 function App() {
   return (
@@ -20,6 +21,11 @@ function App() {
             exact
             path="/employees/:store_id"
             element={<ViewEmployees />}
+          />
+          <Route
+            exact
+            path="/addemployee/:store_id"
+            element={<AddEmployee />}
           />
         </Routes>
       </Router>
