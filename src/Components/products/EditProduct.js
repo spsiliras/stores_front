@@ -31,7 +31,7 @@ export default function EditProduct() {
 
   const loadProducts = async () => {
     const result = await axios.get(
-      `http://localhost:8080/products/${store_id}`
+      `http://localhost:8080/products/product/${product_id}`
     );
     setProduct(result.data);
   };

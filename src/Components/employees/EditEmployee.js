@@ -7,7 +7,7 @@ export default function EditEmployee() {
 
   const { store_id, employee_id } = useParams();
 
-  console.log(store_id);
+  //console.log(store_id);
 
   const [employee, setEmployee] = useState({
     name: "",
@@ -33,14 +33,14 @@ export default function EditEmployee() {
 
   const loadEmployees = async () => {
     const result = await axios.get(
-      `http://localhost:8080/employees/${store_id}`
+      `http://localhost:8080/employees/employee/${employee_id}`
     );
     setEmployee(result.data);
-    console.log(result.data);
   };
 
   useEffect(() => {
     loadEmployees();
+    console.log(employee);
   }, []);
 
   return (
@@ -61,7 +61,7 @@ export default function EditEmployee() {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="Owner" className="form-label">
+          <label htmlFor="Address" className="form-label">
             Address
           </label>
           <input
@@ -74,7 +74,7 @@ export default function EditEmployee() {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="Location" className="form-label">
+          <label htmlFor="Salary" className="form-label">
             Salary
           </label>
           <input

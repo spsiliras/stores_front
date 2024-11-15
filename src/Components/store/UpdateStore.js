@@ -21,7 +21,7 @@ export default function UpdateStore() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(store);
+    //console.log(store);
     await axios.post(`http://localhost:8080/store/${id}`, store);
     navigate("/");
   };
@@ -29,7 +29,7 @@ export default function UpdateStore() {
   const loadStore = async () => {
     const result = await axios.get(`http://localhost:8080/store/${id}`);
     setStore(result.data);
-    console.log(result.data);
+    //console.log(result.data);
   };
 
   useEffect(() => {

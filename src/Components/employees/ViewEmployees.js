@@ -11,7 +11,7 @@ export default function ViewEmployees() {
     const result = await axios.get(
       `http://localhost:8080/employees/${store_id}`
     );
-    console.log(result.data);
+
     setEmployees(result.data);
   };
 
