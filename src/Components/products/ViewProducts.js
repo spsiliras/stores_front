@@ -21,7 +21,7 @@ export default function ViewProducts() {
 
   const deleteProduct = async (id) => {
     await axios.delete(
-      `http://localhost:8080/employees/delete/${store_id}/${id}`
+      `http://localhost:8080/products/delete/${store_id}/${id}`
     );
 
     loadProducts();
